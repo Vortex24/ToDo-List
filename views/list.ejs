@@ -1,0 +1,29 @@
+<%- include("header"); -%>
+
+    <div>
+        <h1> <%= pageTitle %> </h1>
+    </div>
+
+    <div>
+        <ul>
+            <% for (var i = 0; i < kindOfItem.length; i++) { %>
+                    <li class="box">
+                        <form class="" action="/delete" method="post">
+                            <input onChange="this.form.submit()" class="check" type="checkbox" name="checkBox" value="<%=kindOfItem[i]._id%>">
+                            <p><%= kindOfItem[i].name %></p>
+                            <input type="hidden" name="listName" value="<%= pageTitle %>"></input>
+                        </form>
+                    </li>
+
+            <% } %>
+        </ul>
+    </div>
+
+    <div class="form-box">
+        <form action="/" method="post">
+            <input class="blank-box" type="text" name="num1" value="" placeholder="Enter text" autocomplete="off">
+            <button class="btn" type="submit" name="list" value="<%= pageTitle %>">+</button>
+        </form>
+    </div>
+
+<%- include("footer"); -%>
